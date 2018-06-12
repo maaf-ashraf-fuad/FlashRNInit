@@ -17,14 +17,35 @@ export default class SearchText extends React.Component {
         style={styles.searchinput} 
         autoCapitalize = "none"
         autoCorrect={false}
+        onSubmitEditing={this._submitValue}
+        onChangeText={searchinput => this.setState({searchinput})}
         />
         <TouchableOpacity style={styles.buttonsearch}
         >
-            <Text style={styles.searchText}>SEARCH</Text>
+            <Text style={styles.searchText}
+            onPress={this._submitValue}>SEARCH</Text>
         </TouchableOpacity>
         </View>
     );
-}}
+}
+state = {
+    searchinput: ''
+  }
+
+  _submitValue = () => {
+    const { searchinput} = this.state
+    // validate the user input not null
+    if (this.state.searchinput =='') 
+    {
+        alert('Please input value that need to search')
+    } 
+   else {
+       console.log(searchinput)
+   }
+  }
+}
+
+
 
 const styles = StyleSheet.create({
     container: {
