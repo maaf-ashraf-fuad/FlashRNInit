@@ -43,21 +43,7 @@ state = {
        //To validate perform search on the based on SOA rest API
        console.log(searchinput)
        alert(searchinput)
-       componentDidMount() {
-        $.ajax({
-          url: this.props.url,
-          dataType: 'json',
-          cache: false,
-          success: function(data) {
-            this.setState({data: data});
-            alert(data);
-          }.bind(this),
-          error: function(xhr, status, err) {
-            console.error(this.props.url, status, err.toString());
-            alert(status);
-          }.bind(this)
-        });
-      },
+        
    }
   }
 }
