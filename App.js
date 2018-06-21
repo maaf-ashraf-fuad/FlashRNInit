@@ -14,6 +14,7 @@ import {
 import Login from './src/component/login/login';
 import Splash from './src/component/splash/splash';
 import SearchInput from './src/component/search/searchinput';
+//import ScanScreen from './src/component/scan/scanqr';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +

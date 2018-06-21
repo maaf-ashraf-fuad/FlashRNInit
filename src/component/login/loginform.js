@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, StatusBar} from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert} from 'react-native';
 
 export default class LoginForm extends React.Component {
   render() {
@@ -46,9 +46,10 @@ _submitForm = () => {
   // validate the user input not null
   if (this.state.username =='' && this.state.password =='' || this.state.username =='' || this.state.password =='') 
   {
-      alert('Please ensure your TM Staff ID & Password has been key in')
+      Alert.alert('FLASH','Please ensure your TM Staff ID & Password')
   } 
  else {
+   //call the soa rest api to call the username
      console.log(username)
      console.log(password)
  }

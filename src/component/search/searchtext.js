@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, StatusBar} from 'react-native';
+import { StyleSheet, Text, View, Alert, TextInput, TouchableOpacity, StatusBar} from 'react-native';
 
 
 export default class SearchText extends React.Component {
@@ -37,10 +37,27 @@ state = {
     // validate the user input not null
     if (this.state.searchinput =='') 
     {
-        alert('Please input value that need to search')
+        Alert.alert('FLASH','Please input value that need to search')
     } 
    else {
+       //To validate perform search on the based on SOA rest API
        console.log(searchinput)
+       alert(searchinput)
+       componentDidMount() {
+        $.ajax({
+          url: this.props.url,
+          dataType: 'json',
+          cache: false,
+          success: function(data) {
+            this.setState({data: data});
+            alert(data);
+          }.bind(this),
+          error: function(xhr, status, err) {
+            console.error(this.props.url, status, err.toString());
+            alert(status);
+          }.bind(this)
+        });
+      },
    }
   }
 }
